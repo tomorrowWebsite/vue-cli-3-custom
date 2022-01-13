@@ -37,22 +37,58 @@
               <a class="nav-link"> About </a>
             </router-link>
             <router-link class="nav-item" to="/Products" tag="li">
-              <a class="nav-link"> Products sss </a>
-            </router-link>
-            <router-link
-              class="nav-item"
-              to="/Contact"
-              tag="li"
-              replace
-              v-if="user == null"
-            >
-              <a class="nav-link" href=""> Contact </a>
+              <a class="nav-link"> Products </a>
             </router-link>
           </ul>
-          <!-- <router-link class="btn" v-if="user"> -->
-          <router-link class="btn" v-if="user" to="">
-            <a v-on:click="logout">Logout</a>
-          </router-link>
+          <ul class="nav nav-tabs">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-expanded="false"
+                v-if="user"
+                >Profile</a
+              >
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-expanded="false"
+                v-if="user == null"
+                >Contact</a
+              >
+              <ul class="dropdown-menu">
+                <router-link
+                  class="nav-item"
+                  to="/Contact"
+                  tag="li"
+                  replace
+                  v-if="user == null"
+                >
+                  <a class="nav-link" href=""> Signin </a>
+                </router-link>
+                <router-link
+                  class="nav-item"
+                  to="/Contact"
+                  tag="li"
+                  replace
+                  v-if="user == null"
+                >
+                  <a class="nav-link" href=""> Signup </a>
+                </router-link>
+                <router-link class="btn" v-if="user" to="">
+                  <a href="">Profile</a>
+                </router-link>
+                <li><hr class="dropdown-divider" /></li>
+                <router-link class="btn" v-if="user" to="">
+                  <a v-on:click="logout">Logout</a>
+                </router-link>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
