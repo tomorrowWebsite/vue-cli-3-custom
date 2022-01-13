@@ -129,7 +129,7 @@ export default {
         this.user.password,
         // this.user.tel,
         // this.user.data,
-        // this.user.comment
+        // this.user.comment,
         //
         addDoc(colRef, {
           // fName: this.user.fName,
