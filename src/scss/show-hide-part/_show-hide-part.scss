@@ -1,0 +1,23 @@
+.expandable {
+  .show-hide-part {
+    img {
+      width: 100%;
+      height: 250px;
+    }
+  }
+  .expand-bar {
+    padding-top: 20px;
+    .more,
+    .less {
+      font-size: 20px;
+      color: var(--text-color-one);
+      margin-right: 20px;
+    }
+    &::before {
+      top: -5px;
+    }
+    i {
+      top: 70%;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.name-plugin {
+  // height: 250px;
+
+  .start-name-plugin {
+    color: var(--text-color-one);
+  }
+  .end-name-plugin {
+    text-transform: capitalize;
+  }
+}
+
+.ExplainPlugin {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid var(--border-color-four);
+  @include borderRadius(5px);
+
+  .wrapper {
+    .wrapper-content {
+      @include md-media {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+        gap: 3% 3%;
+      }
+    }
+    .header {
+      margin: 30px auto;
+      padding: 30px 0;
+      text-align: center;
+      background-color: var(--background-three);
+      color: var(--text-color-three);
+      h3 {
+        span {
+          color: var(--text-color-three);
+          position: relative;
+          margin: 0 20px;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 3px;
+            height: 100%;
+            background-color: var(--before-color-one);
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 3px;
+            height: 100%;
+            background-color: var(--before-color-one);
+          }
+        }
+      }
+    }
+    .content {
+      .disc-html {
+        position: relative;
+      }
+      .disc-pug {
+        position: relative;
+      }
+      .disc-css {
+        position: relative;
+      }
+      .disc-scss {
+        position: relative;
+      }
+      .disc-javascript {
+        position: relative;
+      }
+      div.pre-language {
+      }
+    }
+
+    .download-plugin {
+      padding: 20px 0;
+      .download {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+        gap: 0px 3%;
+        a {
+          text-decoration: none;
+          font-size: 20;
+          margin-bottom: 30px;
+          direction: ltr;
+          color: #fff;
+          background-color: var(--btn-background-four);
+          border-color: var(--btn-background-four);
+          padding: 10px 5px;
+          @include flexCenter;
+          i {
+            margin: 0 15px;
+          }
+        }
+      }
+    }
+  }
+}

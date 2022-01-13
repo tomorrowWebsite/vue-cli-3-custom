@@ -1,0 +1,87 @@
+// jq-nivo-slider
+.nivo-slider {
+  position: relative;
+  .slider-wrapper {
+    .slider-active {
+      // height: 100vh;
+      img {
+        // height: 100%;
+      }
+    }
+    .slider-content {
+      display: none;
+    }
+    .nivo-caption {
+      background: var(--slider-overlay);
+      width: 100%;
+      height: 100%;
+    }
+    .slider-disc {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      .slider-bg {
+        background: var(--slider-back);
+        padding: 50px;
+        h2 {
+          text-transform: uppercase;
+          color: var(--slider-disc-header-color);
+        }
+        p {
+          color: var(--slider-disc-color);
+        }
+      }
+    }
+    // <<==  ==>>
+    .nivo-directionNav a {
+      font-size: 25px;
+      color: var(--slider-btn-color);
+      background: var(--slider-btn-back);
+      width: 30px;
+      height: 100px;
+      line-height: 100px;
+      margin-top: -50px;
+      text-align: center;
+      left: -50px;
+      opacity: 0.5;
+      @include transitionAll(all, 0.4s, linear);
+      &:hover {
+        background-color: var(--slider-btn-hover-back);
+        color: var(--slider-btn-hover-color);
+        opacity: 1;
+      }
+    }
+    // nivo-controlNav - - -
+    .nivo-controlNav {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: 100;
+      @include transitionAll(all, 0.4s, linear);
+      a {
+        width: 25px;
+        height: 7px;
+        margin: 0px 5px;
+        background: var(--slider-btn-back);
+        display: inline-block;
+        text-indent: -99999px;
+        @include transitionAll(all, 0.4s, linear);
+      }
+      a.nivo-control:hover,
+      a.nivo-control.active {
+        background-color: var(--slider-btn-color);
+      }
+    }
+  }
+  &:hover .nivo-directionNav a {
+    opacity: 1;
+    left: 0;
+  }
+  &:hover .nivo-directionNav .nivo-nextNav {
+    right: 0;
+    left: auto;
+  }
+}

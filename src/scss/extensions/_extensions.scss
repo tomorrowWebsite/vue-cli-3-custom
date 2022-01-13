@@ -1,0 +1,28 @@
+.extensions {
+}
+.wrapper-extensions {
+  @include grid(4);
+  margin-bottom: 30px;
+  gap: 10px 10px;
+  .img-extensions {
+    // width: 100px;
+    // height: 100px;
+    padding: 20px;
+    border: 2px solid var(--border-color-one);
+    @include borderRadius(5px);
+  }
+  a,
+  p {
+    @include flexCenter;
+  }
+  p {
+    font-size: 20px;
+  }
+  a {
+    height: 25%;
+    margin-top: 25%;
+    @include hover {
+      color: var(--btn-color-one);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+// countTo
+.wrapper-count-to {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 0px 3px;
+  .countTo {
+    font: {
+      size: $font-page + 10;
+      weight: bold;
+      family: Arial, Helvetica, sans-serif;
+    }
+    color: #999;
+    display: block;
+  }
+}

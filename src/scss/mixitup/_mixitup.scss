@@ -1,0 +1,52 @@
+$btn-mixitup: #22254b;
+// $btn-mixitup: #c23616;
+$font-page: 16px;
+$color-fff: #fff;
+.mixitup {
+  margin: 60px 0px;
+  padding: 60px 0px;
+  // background-color: #f1f1f1;
+  h4.h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    // font-size: 3vw;
+  }
+  .parent-mixitup {
+    img {
+      width: 100%;
+    }
+    // controls button
+    div.controls {
+      text-align: center;
+      margin-bottom: 30px;
+      direction: $dir-rtl;
+
+      // button
+      button:focus {
+        outline: none;
+      }
+      button.mixitup-btn-style {
+        background: $btn-mixitup;
+        border: 2px solid $color-f1f1f1;
+        color: $color-fff;
+        font-size: $font-page;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 10px 30px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        @include transitionAll(all, 0.3s, linear);
+        @include borderRadius(5px);
+      }
+      button:hover,
+      button.mixitup-control-active {
+        background: $color-fff;
+        border: 2px solid $btn-mixitup;
+        color: $btn-mixitup;
+      }
+    }
+    // div parent item
+    div.portfolio-item {
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.parent-imghvr {
+  border: 1px solid $main-border;
+  padding: 10px;
+  height: 250px;
+  max-height: 250px;
+  @include flexCenter;
+  @include borderRadius(5px);
+  figure {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    figcaption {
+      @include flexCenter;
+      flex-direction: column;
+      .text {
+        text-transform: uppercase;
+        font-size: 25px;
+        display: block;
+        .start {
+          color: $color-red;
+        }
+      }
+    }
+    a {
+      text-align: center;
+      height: 100%;
+      width: 100%;
+      z-index: 5000;
+      text-decoration: none;
+      font-size: 25px;
+      @include flexCenter;
+      @include opacity(0);
+    }
+  }
+}
