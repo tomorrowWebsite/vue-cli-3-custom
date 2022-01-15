@@ -15,7 +15,9 @@
       </div>
     </div>
     <div class="modal-body">
-      <div class="alert alert-danger">{{ messageError }}</div>
+      <div class="alert alert-danger" v-show="messageError">
+        {{ messageError }}
+      </div>
 
       <form
         class="form"

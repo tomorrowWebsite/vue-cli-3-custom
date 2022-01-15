@@ -33,11 +33,18 @@
             <router-link class="nav-item" to="/" tag="li">
               <a class="nav-link"> Home </a>
             </router-link>
-            <router-link class="nav-item" to="/About" tag="li" v-if="user">
+            <router-link class="nav-item" to="/About" tag="li">
               <a class="nav-link"> About </a>
             </router-link>
-            <router-link class="nav-item" to="/Products" tag="li">
+            <router-link class="nav-item" to="/Products" tag="li" v-if="user">
               <a class="nav-link"> Products </a>
+            </router-link>
+            <router-link
+              class="btn"
+              to="@/components/Products/UpdateProduct"
+              v-if="user"
+            >
+              <a>UpdateProduct</a>
             </router-link>
           </ul>
           <ul class="nav nav-tabs">

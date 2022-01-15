@@ -2,7 +2,13 @@
   <div class="Products">
     <div class="row">
       <div class="col-md-4 my-3" v-for="product in products" :key="product.id">
-        <i class="fas fa-trash" v-bind:id="product.id"></i>
+        <router-link v-bind:to="'/Products/' + product.id">
+          <i class="fas fa-trash"></i>
+          <!-- <i class="fas fa-" v-bind:id="product.id"></i> -->
+        </router-link>
+        <router-link v-bind:to="'/Products/' + product.id">
+          <i class="fas fa-edit"></i>
+        </router-link>
         <div class="card">
           <img v-bind:src="product.image" class="card-img-top" alt="..." />
 
@@ -28,8 +34,10 @@
             <!-- <a href="#" class="btn btn-primary">View More</a> -->
             <!-- للسانجل بروداكت  -->
             <router-link v-bind:to="'/Products/' + product.id"
-              >View More</router-link
-            >
+              >View More
+              <!-- <i class="fas fa-chevron-right"></i> -->
+              <fa :icon="['fas', 'chevron-right']"></fa>
+            </router-link>
           </div>
         </div>
       </div>
@@ -40,10 +48,15 @@
 <script>
 import { getFirestore } from "firebase/firestore";
 import { collection } from "firebase/firestore";
+//
+import { query } from "firebase/firestore";
+
 // Get Document After Reload
 // import { getDocs } from "firebase/firestore";
 // Get Document On Time
 import { onSnapshot } from "firebase/firestore";
+//orderBy
+import { orderBy } from "firebase/firestore";
 // Delete Document
 import { deleteDoc } from "firebase/firestore";
 import { doc } from "firebase/firestore";
@@ -58,8 +71,9 @@ export default {
   created() {
     const db = getFirestore();
     const colRef = collection(db, "products");
+    const q = query(colRef, orderBy("createdAt", "desc"));
     // Get Collection Data
-    onSnapshot(colRef, (snapshot) => {
+    onSnapshot(q, (snapshot) => {
       // console.log(snapshot);
       let products = [];
       snapshot.docs.forEach((doc) => {
@@ -159,14 +173,25 @@ export default {
         top: 20px;
         right: 20px;
         color: #ffffff;
-        padding: 3px;
+        background-color: #000;
+        padding: 3px 8px;
         border-radius: 50%;
         cursor: pointer;
-        transition: all 0.2s linear;
         z-index: 2;
+        transition: all 0.4s linear;
+        // box-shadow: -1px 0px 10px #000;
+        // @include boxShadow(-1px, 0px, 10px, #000);
+
         &:hover {
-          transform: rotate(360deg);
+          // transform: scale(1.2);
+          color: #333;
+          background-color: #ffffff;
         }
+      }
+      .fas.fa-edit {
+        // border: 2px solid #333;
+        right: 70px;
+        padding: 3px 8px;
       }
       .card {
         height: 100%;
@@ -206,12 +231,26 @@ export default {
           a {
             text-decoration: none;
             color: #333;
-            border: 1px solid #333;
+            // border: 1px solid #333;
             border-radius: 5px;
             padding: 5px 10px;
             position: absolute;
             bottom: 5px;
-            left: calc(50% - 50px);
+            // left: calc(50% - 50px);
+            transition: all 0.5s ease-in-out;
+            border: 2px solid transparent;
+            svg {
+              margin-left: 5px;
+              transition: all 0.5s ease-in-out;
+            }
+            &:hover {
+              border: 2px solid #333333b3;
+              box-shadow: -1px 0px 10px #333333b3;
+
+              svg {
+                margin-left: 10px;
+              }
+            }
           }
         }
       }

@@ -51,13 +51,22 @@
         display: block;
         position: relative;
         overflow: hidden;
-        height: 600px;
+        min-height: 600px;
+        @include media-b5(sm) {
+          min-height: 1200px;
+        }
 
         .Signin,
         .Signout {
           height: 100%;
 
-          @include flexCenter;
+          @include media-b5(sm) {
+            @include flexCenter;
+            flex-direction: row;
+          }
+          @include media-b5(lg) {
+            @include flexCenter;
+          }
           .modal-header {
             display: flex;
             flex-direction: column;

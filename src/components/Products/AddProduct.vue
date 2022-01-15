@@ -5,14 +5,14 @@
       type="button"
       class="btn btn-primary"
       data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
+      data-bs-target="#addProduct"
     >
       App Product
     </button>
     <!--  Modal -->
     <div
       class="modal fade dir-ltr"
-      id="exampleModal"
+      id="addProduct"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -155,6 +155,7 @@
 import { getFirestore } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { addDoc } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore";
 
 export default {
   name: "AddProduct",
@@ -178,6 +179,7 @@ export default {
         title: this.addProduct.title,
         disc: this.addProduct.disc,
         category: this.addProduct.category,
+        createdAt: serverTimestamp(),
       }).then(() => {
         (this.addProduct.image = ""),
           (this.addProduct.title = ""),
