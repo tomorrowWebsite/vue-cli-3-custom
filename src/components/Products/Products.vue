@@ -1,7 +1,21 @@
 <template>
   <div class="Products">
     <div class="row">
-      <div class="col-md-4 my-3" v-for="product in products" :key="product.id">
+      <div class="mb-3">
+        <label for="search" class="form-label">Search</label>
+        <input
+          type="text"
+          v-model="search"
+          class="form-control"
+          placeholder="Search"
+        />
+        <!-- <fa :icon="['fas', 'search']"></fa> -->
+      </div>
+      <div
+        class="col-md-4 my-3"
+        v-for="product in filterProducts"
+        :key="product.id"
+      >
         <router-link v-bind:to="'/Products/' + product.id">
           <i class="fas fa-trash"></i>
           <!-- <i class="fas fa-" v-bind:id="product.id"></i> -->
@@ -66,6 +80,8 @@ export default {
     return {
       products: [],
       textId: [],
+      // For Search Input
+      search: "",
     };
   },
   created() {
@@ -96,13 +112,13 @@ export default {
         "color: #55efc4; font-weight: bold; font-size: 18px"
       );
       //   Output Array
-      // console.log(
-      //   `%cOutput: %c=> %cArray And How Many Index`,
-      //   "color: #55efc4; font-weight: bold; font-size: 18px",
-      //   "color: #ff7675; font-weight: bold; font-size: 18px",
-      //   "color: #3498db; font-weight: bold; font-size: 18px"
-      // );
-      // console.log(products);
+      console.log(
+        `%cOutput: %c=> %cArray And How Many Index`,
+        "color: #55efc4; font-weight: bold; font-size: 18px",
+        "color: #ff7675; font-weight: bold; font-size: 18px",
+        "color: #3498db; font-weight: bold; font-size: 18px"
+      );
+      console.log(products);
       // Output Id
       // console.log(
       //   `%cOutput: %c=> %cId`,
@@ -157,6 +173,13 @@ export default {
       // deleteDoc(docRef).then(() => {
       //   iconDelete.reset();
       // });
+    },
+  },
+  computed: {
+    filterProducts: function () {
+      return this.products.filter((product) => {
+        return product.title.match(`${this.search}`);
+      });
     },
   },
 };

@@ -39,13 +39,6 @@
             <router-link class="nav-item" to="/Products" tag="li" v-if="user">
               <a class="nav-link"> Products </a>
             </router-link>
-            <router-link
-              class="btn"
-              to="@/components/Products/UpdateProduct"
-              v-if="user"
-            >
-              <a>UpdateProduct</a>
-            </router-link>
           </ul>
           <ul class="nav nav-tabs">
             <li class="nav-item dropdown">
