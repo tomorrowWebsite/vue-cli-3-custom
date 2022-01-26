@@ -139,6 +139,7 @@
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
+                id="closeAddProduct"
               >
                 Close
               </button>
@@ -152,6 +153,7 @@
 </template>
 
 <script>
+//
 import { getFirestore } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { addDoc } from "firebase/firestore";
@@ -174,6 +176,7 @@ export default {
     formAddProudect: function () {
       const db = getFirestore();
       const colRef = collection(db, "products");
+      let closeAddProduct = document.getElementById("closeAddProduct");
       addDoc(colRef, {
         image: this.addProduct.image,
         title: this.addProduct.title,
@@ -185,6 +188,8 @@ export default {
           (this.addProduct.title = ""),
           (this.addProduct.disc = ""),
           (this.addProduct.category = []);
+        this.$swal("Product Is", "Added");
+        closeAddProduct.click();
       });
       // console.log(this.addProduct.image);
     },

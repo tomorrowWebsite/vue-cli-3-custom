@@ -29,6 +29,11 @@ import "./scss/style.scss";
 // Global Custom Directives
 // import "./Custom-Directives";
 
+// Start Sweet Alert
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
+// End Sweet Alert
+
 // Start Firebase
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -58,4 +63,5 @@ createApp(App)
   .component("fa", FontAwesomeIcon)
   .use(store)
   .use(router)
+  .use(VueSweetalert2)
   .mount("#app");

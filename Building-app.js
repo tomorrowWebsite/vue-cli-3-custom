@@ -71,6 +71,11 @@
 // ------ // Normalize
 // ------ import "normalize.css";
 // 23 npm install firebase
+// 24 npm i vue-sweetalert2 --save-dev
+// ------ import VueSweetalert2 from "vue-sweetalert2";
+// ------ import "sweetalert2/dist/sweetalert2.min.css";
+// ------ .use(VueSweetalert2)
+// ------------ this.$swal("Product Is", "Added");
 // *****************
 
 // Adding In Github

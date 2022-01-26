@@ -39,7 +39,19 @@
             <router-link class="nav-item" to="/Products" tag="li" v-if="user">
               <a class="nav-link"> Products </a>
             </router-link>
+            <router-link
+              class="nav-item"
+              to="/EnglishWord"
+              tag="li"
+              v-if="user"
+            >
+              <a class="nav-link"> En Word </a>
+            </router-link>
+            <router-link class="nav-item" to="/Portfolio" tag="li" v-if="user">
+              <a class="nav-link"> Portfolio </a>
+            </router-link>
           </ul>
+          <!-- Contact -->
           <ul class="nav nav-tabs">
             <li class="nav-item dropdown">
               <a
@@ -139,6 +151,7 @@ export default {
     },
   },
 };
+// *******************
 </script>
 
 <style lang="scss" scoped>

@@ -3,8 +3,9 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Products from "../views/Products.vue";
 import SingleProduct from "../components/Products/SingleProduct.vue";
-// import UpdateProduct from "../components/Products/UpdateProduct.vue";
 import UpdateProduct from "../views/UpdateProduct.vue";
+import EnglishWord from "../views/EnglishWord.vue";
+import Portfolio from "../views/Portfolio.vue";
 import Contact from "../views/Contact.vue";
 
 const routes = [
@@ -32,6 +33,16 @@ const routes = [
     path: "/Products/:id",
     name: "UpdateProduct",
     component: UpdateProduct,
+  },
+  {
+    path: "/EnglishWord",
+    name: "EnglishWord",
+    component: EnglishWord,
+  },
+  {
+    path: "/Portfolio",
+    name: "Portfolio",
+    component: Portfolio,
   },
   {
     path: "/Contact",
